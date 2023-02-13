@@ -1,6 +1,6 @@
 # SmrfClient::BillingCodeApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -19,6 +19,11 @@ Returns all billing codes
 ```ruby
 require 'time'
 require 'smrf_client'
+# setup authorization
+SmrfClient.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = SmrfClient::BillingCodeApi.new
 
@@ -59,7 +64,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -78,6 +83,11 @@ Returns billing codes for required parameters
 ```ruby
 require 'time'
 require 'smrf_client'
+# setup authorization
+SmrfClient.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = SmrfClient::BillingCodeApi.new
 opts = {
@@ -125,7 +135,7 @@ end
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

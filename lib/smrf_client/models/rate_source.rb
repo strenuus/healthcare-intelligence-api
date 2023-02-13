@@ -19,14 +19,11 @@ module SmrfClient
 
     attr_accessor :name
 
-    attr_accessor :identifier
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'rate_source_id' => :'rate_source_id',
-        :'name' => :'name',
-        :'identifier' => :'identifier'
+        :'name' => :'name'
       }
     end
 
@@ -39,8 +36,7 @@ module SmrfClient
     def self.openapi_types
       {
         :'rate_source_id' => :'Integer',
-        :'name' => :'String',
-        :'identifier' => :'String'
+        :'name' => :'String'
       }
     end
 
@@ -72,10 +68,6 @@ module SmrfClient
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
-
-      if attributes.key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -97,8 +89,7 @@ module SmrfClient
       return true if self.equal?(o)
       self.class == o.class &&
           rate_source_id == o.rate_source_id &&
-          name == o.name &&
-          identifier == o.identifier
+          name == o.name
     end
 
     # @see the `==` method
@@ -110,7 +101,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rate_source_id, name, identifier].hash
+      [rate_source_id, name].hash
     end
 
     # Builds the object from hash

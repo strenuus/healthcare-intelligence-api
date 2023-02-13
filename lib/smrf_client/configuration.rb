@@ -144,9 +144,9 @@ module SmrfClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
-      @host = 'localhost'
-      @base_path = ''
+      @scheme = 'https'
+      @host = 'hci-qa.services.mdxdata.com'
+      @base_path = '/api'
       @server_index = 0
       @server_operation_index = {}
       @server_variables = {}
@@ -227,6 +227,13 @@ module SmrfClient
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
+        'BearerAuth' =>
+          {
+            type: 'bearer',
+            in: 'header',
+            key: 'Authorization',
+            value: "Bearer #{access_token_with_refresh}"
+          },
       }
     end
 
@@ -234,8 +241,17 @@ module SmrfClient
     def server_settings
       [
         {
-          url: "",
+          url: "https://hci{environment}.services.mdxdata.com/api",
           description: "No description provided",
+          variables: {
+            environment: {
+                description: "No description provided",
+                default_value: "-qa",
+                enum_values: [
+                  "-qa"
+                ]
+              }
+            }
         }
       ]
     end

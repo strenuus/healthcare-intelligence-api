@@ -56,6 +56,14 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'smrf_client'
 
+# Setup authorization
+SmrfClient.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure a proc to get access tokens in lieu of the static access_token configuration
+  config.access_token_getter = -> { 'YOUR TOKEN GETTER PROC' } 
+end
+
 api_instance = SmrfClient::BillingCodeApi.new
 
 begin
@@ -70,7 +78,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -143,5 +151,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
- All endpoints do not require authorization.
+
+### BearerAuth
+
+- **Type**: Bearer authentication
 

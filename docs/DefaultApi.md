@@ -1,6 +1,6 @@
 # SmrfClient::DefaultApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -20,6 +20,11 @@ heartbeat
 ```ruby
 require 'time'
 require 'smrf_client'
+# setup authorization
+SmrfClient.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = SmrfClient::DefaultApi.new
 
@@ -59,7 +64,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

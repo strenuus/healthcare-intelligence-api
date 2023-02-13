@@ -15,7 +15,7 @@ require 'time'
 
 module SmrfClient
   class SummaryPost200ResponseOneOf5
-    attr_accessor :counties
+    attr_accessor :states
 
     attr_accessor :count
 
@@ -28,7 +28,7 @@ module SmrfClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'counties' => :'counties',
+        :'states' => :'states',
         :'count' => :'count',
         :'maximum_rate' => :'maximum_rate',
         :'median_rate' => :'median_rate',
@@ -44,7 +44,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'counties' => :'Array<String>',
+        :'states' => :'Array<String>',
         :'count' => :'Integer',
         :'maximum_rate' => :'Float',
         :'median_rate' => :'Float',
@@ -81,9 +81,9 @@ module SmrfClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'counties')
-        if (value = attributes[:'counties']).is_a?(Array)
-          self.counties = value
+      if attributes.key?(:'states')
+        if (value = attributes[:'states']).is_a?(Array)
+          self.states = value
         end
       end
 
@@ -122,7 +122,7 @@ module SmrfClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          counties == o.counties &&
+          states == o.states &&
           count == o.count &&
           maximum_rate == o.maximum_rate &&
           median_rate == o.median_rate &&
@@ -138,7 +138,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [counties, count, maximum_rate, median_rate, minimum_rate].hash
+      [states, count, maximum_rate, median_rate, minimum_rate].hash
     end
 
     # Builds the object from hash

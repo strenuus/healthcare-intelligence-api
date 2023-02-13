@@ -61,7 +61,7 @@ module SmrfClient
       return_type = opts[:debug_return_type] || 'Array<ReportingPlan>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
 
       new_options = opts.merge(
         :operation => :"ReportingPlanApi.rate_sources_rate_source_id_reporting_plans_get",

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **counties** | **Array&lt;String&gt;** |  | [optional] |
+| **states** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'smrf_client'
 
 instance = SmrfClient::StatesObject.new(
-  counties: null
+  states: null
 )
 ```
 

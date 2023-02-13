@@ -15,12 +15,12 @@ require 'time'
 
 module SmrfClient
   class StatesObject
-    attr_accessor :counties
+    attr_accessor :states
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'counties' => :'counties'
+        :'states' => :'states'
       }
     end
 
@@ -32,7 +32,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'counties' => :'Array<String>'
+        :'states' => :'Array<String>'
       }
     end
 
@@ -57,9 +57,9 @@ module SmrfClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'counties')
-        if (value = attributes[:'counties']).is_a?(Array)
-          self.counties = value
+      if attributes.key?(:'states')
+        if (value = attributes[:'states']).is_a?(Array)
+          self.states = value
         end
       end
     end
@@ -82,7 +82,7 @@ module SmrfClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          counties == o.counties
+          states == o.states
     end
 
     # @see the `==` method
@@ -94,7 +94,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [counties].hash
+      [states].hash
     end
 
     # Builds the object from hash

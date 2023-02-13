@@ -1,6 +1,6 @@
 # SmrfClient::RatesSummaryApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -18,6 +18,11 @@ Returns summary metrics
 ```ruby
 require 'time'
 require 'smrf_client'
+# setup authorization
+SmrfClient.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = SmrfClient::RatesSummaryApi.new
 summary_request_body = SmrfClient::SummaryRequestBody.new({rate_source: SmrfClient::RateSourceRequest.new, billing_code: SmrfClient::BillingCodeAndType.new}) # SummaryRequestBody | 
@@ -65,7 +70,7 @@ end
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

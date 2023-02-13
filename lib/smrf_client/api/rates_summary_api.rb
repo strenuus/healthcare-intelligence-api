@@ -73,7 +73,7 @@ module SmrfClient
       return_type = opts[:debug_return_type] || 'SummaryPost200Response'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
 
       new_options = opts.merge(
         :operation => :"RatesSummaryApi.summary_post",
