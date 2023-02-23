@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **npi_specialties** | **Array&lt;String&gt;** |  | [optional] |
+| **npi_specialties** | **String** |  | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'smrf_client'
 
 instance = SmrfClient::NpiSpecialtiesObject.new(
-  npi_specialties: null
+  npi_specialties: 235Z00000X|Speech-Language Pathologist
 )
 ```
 

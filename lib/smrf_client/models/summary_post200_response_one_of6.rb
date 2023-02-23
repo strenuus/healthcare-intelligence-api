@@ -25,6 +25,10 @@ module SmrfClient
 
     attr_accessor :minimum_rate
 
+    attr_accessor :q1
+
+    attr_accessor :q3
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -32,7 +36,9 @@ module SmrfClient
         :'count' => :'count',
         :'maximum_rate' => :'maximum_rate',
         :'median_rate' => :'median_rate',
-        :'minimum_rate' => :'minimum_rate'
+        :'minimum_rate' => :'minimum_rate',
+        :'q1' => :'q1',
+        :'q3' => :'q3'
       }
     end
 
@@ -44,11 +50,13 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'zips' => :'Array<String>',
+        :'zips' => :'String',
         :'count' => :'Integer',
         :'maximum_rate' => :'Float',
         :'median_rate' => :'Float',
-        :'minimum_rate' => :'Float'
+        :'minimum_rate' => :'Float',
+        :'q1' => :'Float',
+        :'q3' => :'Float'
       }
     end
 
@@ -62,7 +70,7 @@ module SmrfClient
     def self.openapi_all_of
       [
       :'BaseSummaryResponseBody',
-      :'ZipsObject'
+      :'SummaryPost200ResponseOneOf6AllOf'
       ]
     end
 
@@ -82,9 +90,7 @@ module SmrfClient
       }
 
       if attributes.key?(:'zips')
-        if (value = attributes[:'zips']).is_a?(Array)
-          self.zips = value
-        end
+        self.zips = attributes[:'zips']
       end
 
       if attributes.key?(:'count')
@@ -101,6 +107,14 @@ module SmrfClient
 
       if attributes.key?(:'minimum_rate')
         self.minimum_rate = attributes[:'minimum_rate']
+      end
+
+      if attributes.key?(:'q1')
+        self.q1 = attributes[:'q1']
+      end
+
+      if attributes.key?(:'q3')
+        self.q3 = attributes[:'q3']
       end
     end
 
@@ -126,7 +140,9 @@ module SmrfClient
           count == o.count &&
           maximum_rate == o.maximum_rate &&
           median_rate == o.median_rate &&
-          minimum_rate == o.minimum_rate
+          minimum_rate == o.minimum_rate &&
+          q1 == o.q1 &&
+          q3 == o.q3
     end
 
     # @see the `==` method
@@ -138,7 +154,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [zips, count, maximum_rate, median_rate, minimum_rate].hash
+      [zips, count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
     end
 
     # Builds the object from hash

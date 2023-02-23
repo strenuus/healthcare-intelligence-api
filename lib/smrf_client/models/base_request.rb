@@ -31,6 +31,11 @@ module SmrfClient
 
     attr_accessor :zips
 
+    # intersection of specialties of the provider and of the billing code
+    attr_accessor :applicable_specialties
+
+    attr_accessor :npi_specialties
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -63,7 +68,9 @@ module SmrfClient
         :'billing_class' => :'billing_class',
         :'entity_type' => :'entity_type',
         :'negotiated_type' => :'negotiated_type',
-        :'zips' => :'zips'
+        :'zips' => :'zips',
+        :'applicable_specialties' => :'applicable_specialties',
+        :'npi_specialties' => :'npi_specialties'
       }
     end
 
@@ -82,7 +89,9 @@ module SmrfClient
         :'billing_class' => :'BillingClass',
         :'entity_type' => :'EntityType',
         :'negotiated_type' => :'NegotiatedType',
-        :'zips' => :'Array<String>'
+        :'zips' => :'Array<String>',
+        :'applicable_specialties' => :'String',
+        :'npi_specialties' => :'String'
       }
     end
 
@@ -95,11 +104,13 @@ module SmrfClient
     # List of class defined in allOf (OpenAPI v3)
     def self.openapi_all_of
       [
+      :'ApplicableSpecialtiesObject',
       :'BillingClassObject',
       :'BillingCodeAndTypeObject',
       :'EntityTypeObject',
       :'NegotiatedTypeObject',
       :'NegotiationArrangementObject',
+      :'NpiSpecialtiesObject',
       :'PlaceOfServiceObject',
       :'RateSourceRequestObject',
       :'ZipsObject'
@@ -154,6 +165,14 @@ module SmrfClient
           self.zips = value
         end
       end
+
+      if attributes.key?(:'applicable_specialties')
+        self.applicable_specialties = attributes[:'applicable_specialties']
+      end
+
+      if attributes.key?(:'npi_specialties')
+        self.npi_specialties = attributes[:'npi_specialties']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -191,7 +210,9 @@ module SmrfClient
           billing_class == o.billing_class &&
           entity_type == o.entity_type &&
           negotiated_type == o.negotiated_type &&
-          zips == o.zips
+          zips == o.zips &&
+          applicable_specialties == o.applicable_specialties &&
+          npi_specialties == o.npi_specialties
     end
 
     # @see the `==` method
@@ -203,7 +224,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_type, zips].hash
+      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_type, zips, applicable_specialties, npi_specialties].hash
     end
 
     # Builds the object from hash

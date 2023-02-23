@@ -5,7 +5,7 @@ All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**billing_codes_get**](BillingCodeApi.md#billing_codes_get) | **GET** /billing_codes | Returns all billing codes |
-| [**billing_codes_search_get**](BillingCodeApi.md#billing_codes_search_get) | **GET** /billing_codes/search | Returns billing codes for required parameters |
+| [**billing_codes_search_post**](BillingCodeApi.md#billing_codes_search_post) | **POST** /billing_codes/search | Returns billing codes for required parameters |
 
 
 ## billing_codes_get
@@ -72,9 +72,9 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## billing_codes_search_get
+## billing_codes_search_post
 
-> <Array<BillingCodeAndType>> billing_codes_search_get(opts)
+> <Array<BillingCodeAndType>> billing_codes_search_post(rate_source_request_object)
 
 Returns billing codes for required parameters
 
@@ -90,35 +90,32 @@ SmrfClient.configure do |config|
 end
 
 api_instance = SmrfClient::BillingCodeApi.new
-opts = {
-  rate_source_id: 56, # Integer | The id of the rate source to query against
-  reporting_plan_ids: 56 # Integer | The ids of reporting plans to query against
-}
+rate_source_request_object = SmrfClient::RateSourceRequestObject.new # RateSourceRequestObject | 
 
 begin
   # Returns billing codes for required parameters
-  result = api_instance.billing_codes_search_get(opts)
+  result = api_instance.billing_codes_search_post(rate_source_request_object)
   p result
 rescue SmrfClient::ApiError => e
-  puts "Error when calling BillingCodeApi->billing_codes_search_get: #{e}"
+  puts "Error when calling BillingCodeApi->billing_codes_search_post: #{e}"
 end
 ```
 
-#### Using the billing_codes_search_get_with_http_info variant
+#### Using the billing_codes_search_post_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<BillingCodeAndType>>, Integer, Hash)> billing_codes_search_get_with_http_info(opts)
+> <Array(<Array<BillingCodeAndType>>, Integer, Hash)> billing_codes_search_post_with_http_info(rate_source_request_object)
 
 ```ruby
 begin
   # Returns billing codes for required parameters
-  data, status_code, headers = api_instance.billing_codes_search_get_with_http_info(opts)
+  data, status_code, headers = api_instance.billing_codes_search_post_with_http_info(rate_source_request_object)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<BillingCodeAndType>>
 rescue SmrfClient::ApiError => e
-  puts "Error when calling BillingCodeApi->billing_codes_search_get_with_http_info: #{e}"
+  puts "Error when calling BillingCodeApi->billing_codes_search_post_with_http_info: #{e}"
 end
 ```
 
@@ -126,8 +123,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **rate_source_id** | **Integer** | The id of the rate source to query against | [optional] |
-| **reporting_plan_ids** | **Integer** | The ids of reporting plans to query against | [optional] |
+| **rate_source_request_object** | [**RateSourceRequestObject**](RateSourceRequestObject.md) |  |  |
 
 ### Return type
 
@@ -139,6 +135,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

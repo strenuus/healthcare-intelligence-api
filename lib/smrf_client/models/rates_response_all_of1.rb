@@ -14,8 +14,7 @@ require 'date'
 require 'time'
 
 module SmrfClient
-  class RatesUniqueValuesPost200ResponseOneOfInner1
-    # intersection of specialties of the provider and of the billing code
+  class RatesResponseAllOf1
     attr_accessor :applicable_specialties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -33,7 +32,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'applicable_specialties' => :'String'
+        :'applicable_specialties' => :'Array<String>'
       }
     end
 
@@ -47,19 +46,21 @@ module SmrfClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner1` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::RatesResponseAllOf1` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner1`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::RatesResponseAllOf1`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
       if attributes.key?(:'applicable_specialties')
-        self.applicable_specialties = attributes[:'applicable_specialties']
+        if (value = attributes[:'applicable_specialties']).is_a?(Array)
+          self.applicable_specialties = value
+        end
       end
     end
 

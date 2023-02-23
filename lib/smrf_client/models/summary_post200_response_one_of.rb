@@ -15,6 +15,7 @@ require 'time'
 
 module SmrfClient
   class SummaryPost200ResponseOneOf
+    # intersection of specialties of the provider and of the billing code
     attr_accessor :applicable_specialties
 
     attr_accessor :count
@@ -25,6 +26,10 @@ module SmrfClient
 
     attr_accessor :minimum_rate
 
+    attr_accessor :q1
+
+    attr_accessor :q3
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -32,7 +37,9 @@ module SmrfClient
         :'count' => :'count',
         :'maximum_rate' => :'maximum_rate',
         :'median_rate' => :'median_rate',
-        :'minimum_rate' => :'minimum_rate'
+        :'minimum_rate' => :'minimum_rate',
+        :'q1' => :'q1',
+        :'q3' => :'q3'
       }
     end
 
@@ -44,11 +51,13 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'applicable_specialties' => :'Array<String>',
+        :'applicable_specialties' => :'String',
         :'count' => :'Integer',
         :'maximum_rate' => :'Float',
         :'median_rate' => :'Float',
-        :'minimum_rate' => :'Float'
+        :'minimum_rate' => :'Float',
+        :'q1' => :'Float',
+        :'q3' => :'Float'
       }
     end
 
@@ -82,9 +91,7 @@ module SmrfClient
       }
 
       if attributes.key?(:'applicable_specialties')
-        if (value = attributes[:'applicable_specialties']).is_a?(Array)
-          self.applicable_specialties = value
-        end
+        self.applicable_specialties = attributes[:'applicable_specialties']
       end
 
       if attributes.key?(:'count')
@@ -101,6 +108,14 @@ module SmrfClient
 
       if attributes.key?(:'minimum_rate')
         self.minimum_rate = attributes[:'minimum_rate']
+      end
+
+      if attributes.key?(:'q1')
+        self.q1 = attributes[:'q1']
+      end
+
+      if attributes.key?(:'q3')
+        self.q3 = attributes[:'q3']
       end
     end
 
@@ -126,7 +141,9 @@ module SmrfClient
           count == o.count &&
           maximum_rate == o.maximum_rate &&
           median_rate == o.median_rate &&
-          minimum_rate == o.minimum_rate
+          minimum_rate == o.minimum_rate &&
+          q1 == o.q1 &&
+          q3 == o.q3
     end
 
     # @see the `==` method
@@ -138,7 +155,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [applicable_specialties, count, maximum_rate, median_rate, minimum_rate].hash
+      [applicable_specialties, count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
     end
 
     # Builds the object from hash

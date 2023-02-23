@@ -31,7 +31,14 @@ module SmrfClient
 
     attr_accessor :zips
 
+    # intersection of specialties of the provider and of the billing code
+    attr_accessor :applicable_specialties
+
+    attr_accessor :npi_specialties
+
     attr_accessor :limit
+
+    attr_accessor :offset
 
     attr_accessor :sort_by
 
@@ -70,7 +77,10 @@ module SmrfClient
         :'entity_type' => :'entity_type',
         :'negotiated_type' => :'negotiated_type',
         :'zips' => :'zips',
+        :'applicable_specialties' => :'applicable_specialties',
+        :'npi_specialties' => :'npi_specialties',
         :'limit' => :'limit',
+        :'offset' => :'offset',
         :'sort_by' => :'sort_by',
         :'sort_direction' => :'sort_direction'
       }
@@ -92,7 +102,10 @@ module SmrfClient
         :'entity_type' => :'EntityType',
         :'negotiated_type' => :'NegotiatedType',
         :'zips' => :'Array<String>',
+        :'applicable_specialties' => :'String',
+        :'npi_specialties' => :'String',
         :'limit' => :'Integer',
+        :'offset' => :'Integer',
         :'sort_by' => :'String',
         :'sort_direction' => :'String'
       }
@@ -161,8 +174,20 @@ module SmrfClient
         end
       end
 
+      if attributes.key?(:'applicable_specialties')
+        self.applicable_specialties = attributes[:'applicable_specialties']
+      end
+
+      if attributes.key?(:'npi_specialties')
+        self.npi_specialties = attributes[:'npi_specialties']
+      end
+
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
       end
 
       if attributes.key?(:'sort_by')
@@ -234,7 +259,10 @@ module SmrfClient
           entity_type == o.entity_type &&
           negotiated_type == o.negotiated_type &&
           zips == o.zips &&
+          applicable_specialties == o.applicable_specialties &&
+          npi_specialties == o.npi_specialties &&
           limit == o.limit &&
+          offset == o.offset &&
           sort_by == o.sort_by &&
           sort_direction == o.sort_direction
     end
@@ -248,7 +276,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_type, zips, limit, sort_by, sort_direction].hash
+      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_type, zips, applicable_specialties, npi_specialties, limit, offset, sort_by, sort_direction].hash
     end
 
     # Builds the object from hash

@@ -14,14 +14,13 @@ require 'date'
 require 'time'
 
 module SmrfClient
-  class RatesUniqueValuesPost200ResponseOneOfInner1
-    # intersection of specialties of the provider and of the billing code
-    attr_accessor :applicable_specialties
+  class TinNameObject
+    attr_accessor :tin_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'applicable_specialties' => :'applicable_specialties'
+        :'tin_name' => :'tin_name'
       }
     end
 
@@ -33,7 +32,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'applicable_specialties' => :'String'
+        :'tin_name' => :'String'
       }
     end
 
@@ -47,19 +46,19 @@ module SmrfClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner1` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::TinNameObject` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner1`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::TinNameObject`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'applicable_specialties')
-        self.applicable_specialties = attributes[:'applicable_specialties']
+      if attributes.key?(:'tin_name')
+        self.tin_name = attributes[:'tin_name']
       end
     end
 
@@ -81,7 +80,7 @@ module SmrfClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          applicable_specialties == o.applicable_specialties
+          tin_name == o.tin_name
     end
 
     # @see the `==` method
@@ -93,7 +92,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [applicable_specialties].hash
+      [tin_name].hash
     end
 
     # Builds the object from hash

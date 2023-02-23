@@ -15,6 +15,7 @@ require 'time'
 
 module SmrfClient
   class ApplicableSpecialtiesObject
+    # intersection of specialties of the provider and of the billing code
     attr_accessor :applicable_specialties
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -32,7 +33,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'applicable_specialties' => :'Array<String>'
+        :'applicable_specialties' => :'String'
       }
     end
 
@@ -58,9 +59,7 @@ module SmrfClient
       }
 
       if attributes.key?(:'applicable_specialties')
-        if (value = attributes[:'applicable_specialties']).is_a?(Array)
-          self.applicable_specialties = value
-        end
+        self.applicable_specialties = attributes[:'applicable_specialties']
       end
     end
 

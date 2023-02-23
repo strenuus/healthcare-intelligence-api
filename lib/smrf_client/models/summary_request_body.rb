@@ -31,6 +31,11 @@ module SmrfClient
 
     attr_accessor :zips
 
+    # intersection of specialties of the provider and of the billing code
+    attr_accessor :applicable_specialties
+
+    attr_accessor :npi_specialties
+
     attr_accessor :metric
 
     class EnumAttributeValidator
@@ -66,6 +71,8 @@ module SmrfClient
         :'entity_type' => :'entity_type',
         :'negotiated_type' => :'negotiated_type',
         :'zips' => :'zips',
+        :'applicable_specialties' => :'applicable_specialties',
+        :'npi_specialties' => :'npi_specialties',
         :'metric' => :'metric'
       }
     end
@@ -86,6 +93,8 @@ module SmrfClient
         :'entity_type' => :'EntityType',
         :'negotiated_type' => :'NegotiatedType',
         :'zips' => :'Array<String>',
+        :'applicable_specialties' => :'String',
+        :'npi_specialties' => :'String',
         :'metric' => :'String'
       }
     end
@@ -153,6 +162,14 @@ module SmrfClient
         end
       end
 
+      if attributes.key?(:'applicable_specialties')
+        self.applicable_specialties = attributes[:'applicable_specialties']
+      end
+
+      if attributes.key?(:'npi_specialties')
+        self.npi_specialties = attributes[:'npi_specialties']
+      end
+
       if attributes.key?(:'metric')
         self.metric = attributes[:'metric']
       end
@@ -206,6 +223,8 @@ module SmrfClient
           entity_type == o.entity_type &&
           negotiated_type == o.negotiated_type &&
           zips == o.zips &&
+          applicable_specialties == o.applicable_specialties &&
+          npi_specialties == o.npi_specialties &&
           metric == o.metric
     end
 
@@ -218,7 +237,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_type, zips, metric].hash
+      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_type, zips, applicable_specialties, npi_specialties, metric].hash
     end
 
     # Builds the object from hash

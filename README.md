@@ -83,7 +83,7 @@ All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *SmrfClient::BillingCodeApi* | [**billing_codes_get**](docs/BillingCodeApi.md#billing_codes_get) | **GET** /billing_codes | Returns all billing codes
-*SmrfClient::BillingCodeApi* | [**billing_codes_search_get**](docs/BillingCodeApi.md#billing_codes_search_get) | **GET** /billing_codes/search | Returns billing codes for required parameters
+*SmrfClient::BillingCodeApi* | [**billing_codes_search_post**](docs/BillingCodeApi.md#billing_codes_search_post) | **POST** /billing_codes/search | Returns billing codes for required parameters
 *SmrfClient::DefaultApi* | [**ping_get**](docs/DefaultApi.md#ping_get) | **GET** /ping | 
 *SmrfClient::PlaceOfServiceApi* | [**places_of_service_get**](docs/PlaceOfServiceApi.md#places_of_service_get) | **GET** /places_of_service | Returns all places of service
 *SmrfClient::RateSourceApi* | [**rate_sources_get**](docs/RateSourceApi.md#rate_sources_get) | **GET** /rate_sources | Returns all rate sources
@@ -107,10 +107,8 @@ Class | Method | HTTP request | Description
  - [SmrfClient::BillingCodeTypeObject](docs/BillingCodeTypeObject.md)
  - [SmrfClient::BillingCodesGet200ResponseInner](docs/BillingCodesGet200ResponseInner.md)
  - [SmrfClient::BillingCodesGet200ResponseInnerAllOf](docs/BillingCodesGet200ResponseInnerAllOf.md)
- - [SmrfClient::CountiesObject](docs/CountiesObject.md)
  - [SmrfClient::EntityType](docs/EntityType.md)
  - [SmrfClient::EntityTypeObject](docs/EntityTypeObject.md)
- - [SmrfClient::MsaObject](docs/MsaObject.md)
  - [SmrfClient::NegotiatedRateObject](docs/NegotiatedRateObject.md)
  - [SmrfClient::NegotiatedType](docs/NegotiatedType.md)
  - [SmrfClient::NegotiatedTypeObject](docs/NegotiatedTypeObject.md)
@@ -128,22 +126,28 @@ Class | Method | HTTP request | Description
  - [SmrfClient::RatesRequest](docs/RatesRequest.md)
  - [SmrfClient::RatesRequestAllOf](docs/RatesRequestAllOf.md)
  - [SmrfClient::RatesResponse](docs/RatesResponse.md)
+ - [SmrfClient::RatesResponseAllOf](docs/RatesResponseAllOf.md)
+ - [SmrfClient::RatesResponseAllOf1](docs/RatesResponseAllOf1.md)
  - [SmrfClient::RatesUniqueValuesPost200Response](docs/RatesUniqueValuesPost200Response.md)
  - [SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner](docs/RatesUniqueValuesPost200ResponseOneOfInner.md)
  - [SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner1](docs/RatesUniqueValuesPost200ResponseOneOfInner1.md)
  - [SmrfClient::RatesUniqueValuesPostRequest](docs/RatesUniqueValuesPostRequest.md)
  - [SmrfClient::ReportingPlan](docs/ReportingPlan.md)
- - [SmrfClient::StatesObject](docs/StatesObject.md)
  - [SmrfClient::SummaryPost200Response](docs/SummaryPost200Response.md)
  - [SmrfClient::SummaryPost200ResponseOneOf](docs/SummaryPost200ResponseOneOf.md)
  - [SmrfClient::SummaryPost200ResponseOneOf1](docs/SummaryPost200ResponseOneOf1.md)
+ - [SmrfClient::SummaryPost200ResponseOneOf1AllOf](docs/SummaryPost200ResponseOneOf1AllOf.md)
  - [SmrfClient::SummaryPost200ResponseOneOf2](docs/SummaryPost200ResponseOneOf2.md)
+ - [SmrfClient::SummaryPost200ResponseOneOf2AllOf](docs/SummaryPost200ResponseOneOf2AllOf.md)
  - [SmrfClient::SummaryPost200ResponseOneOf3](docs/SummaryPost200ResponseOneOf3.md)
  - [SmrfClient::SummaryPost200ResponseOneOf4](docs/SummaryPost200ResponseOneOf4.md)
  - [SmrfClient::SummaryPost200ResponseOneOf5](docs/SummaryPost200ResponseOneOf5.md)
+ - [SmrfClient::SummaryPost200ResponseOneOf5AllOf](docs/SummaryPost200ResponseOneOf5AllOf.md)
  - [SmrfClient::SummaryPost200ResponseOneOf6](docs/SummaryPost200ResponseOneOf6.md)
+ - [SmrfClient::SummaryPost200ResponseOneOf6AllOf](docs/SummaryPost200ResponseOneOf6AllOf.md)
  - [SmrfClient::SummaryRequestBody](docs/SummaryRequestBody.md)
  - [SmrfClient::SummaryRequestBodyAllOf](docs/SummaryRequestBodyAllOf.md)
+ - [SmrfClient::TinNameObject](docs/TinNameObject.md)
  - [SmrfClient::TinValueObject](docs/TinValueObject.md)
  - [SmrfClient::UniqueValuesFieldOptionsObject](docs/UniqueValuesFieldOptionsObject.md)
  - [SmrfClient::ZipsObject](docs/ZipsObject.md)

@@ -12,7 +12,7 @@
 require 'smrf_client'
 
 instance = SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner.new(
-  npi_specialties: Diagnostic Radiology
+  npi_specialties: 235Z00000X|Speech-Language Pathologist
 )
 ```
 

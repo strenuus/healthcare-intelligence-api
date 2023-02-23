@@ -17,6 +17,8 @@ module SmrfClient
   class RatesRequestAllOf
     attr_accessor :limit
 
+    attr_accessor :offset
+
     attr_accessor :sort_by
 
     attr_accessor :sort_direction
@@ -47,6 +49,7 @@ module SmrfClient
     def self.attribute_map
       {
         :'limit' => :'limit',
+        :'offset' => :'offset',
         :'sort_by' => :'sort_by',
         :'sort_direction' => :'sort_direction'
       }
@@ -61,6 +64,7 @@ module SmrfClient
     def self.openapi_types
       {
         :'limit' => :'Integer',
+        :'offset' => :'Integer',
         :'sort_by' => :'String',
         :'sort_direction' => :'String'
       }
@@ -89,6 +93,10 @@ module SmrfClient
 
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
+      end
+
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
       end
 
       if attributes.key?(:'sort_by')
@@ -143,6 +151,7 @@ module SmrfClient
       return true if self.equal?(o)
       self.class == o.class &&
           limit == o.limit &&
+          offset == o.offset &&
           sort_by == o.sort_by &&
           sort_direction == o.sort_direction
     end
@@ -156,7 +165,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [limit, sort_by, sort_direction].hash
+      [limit, offset, sort_by, sort_direction].hash
     end
 
     # Builds the object from hash

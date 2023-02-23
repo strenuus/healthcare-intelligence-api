@@ -23,6 +23,8 @@ module SmrfClient
 
     attr_accessor :plan_id
 
+    attr_accessor :plan_id_name
+
     attr_accessor :plan_id_type
 
     attr_accessor :plan_market_type
@@ -56,6 +58,7 @@ module SmrfClient
         :'reporting_plan_id' => :'reporting_plan_id',
         :'plan_name' => :'plan_name',
         :'plan_id' => :'plan_id',
+        :'plan_id_name' => :'plan_id_name',
         :'plan_id_type' => :'plan_id_type',
         :'plan_market_type' => :'plan_market_type'
       }
@@ -73,6 +76,7 @@ module SmrfClient
         :'reporting_plan_id' => :'Integer',
         :'plan_name' => :'String',
         :'plan_id' => :'String',
+        :'plan_id_name' => :'String',
         :'plan_id_type' => :'String',
         :'plan_market_type' => :'String'
       }
@@ -81,10 +85,6 @@ module SmrfClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'plan_name',
-        :'plan_id',
-        :'plan_id_type',
-        :'plan_market_type'
       ])
     end
 
@@ -117,6 +117,10 @@ module SmrfClient
 
       if attributes.key?(:'plan_id')
         self.plan_id = attributes[:'plan_id']
+      end
+
+      if attributes.key?(:'plan_id_name')
+        self.plan_id_name = attributes[:'plan_id_name']
       end
 
       if attributes.key?(:'plan_id_type')
@@ -174,6 +178,7 @@ module SmrfClient
           reporting_plan_id == o.reporting_plan_id &&
           plan_name == o.plan_name &&
           plan_id == o.plan_id &&
+          plan_id_name == o.plan_id_name &&
           plan_id_type == o.plan_id_type &&
           plan_market_type == o.plan_market_type
     end
@@ -187,7 +192,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rate_source_id, reporting_plan_id, plan_name, plan_id, plan_id_type, plan_market_type].hash
+      [rate_source_id, reporting_plan_id, plan_name, plan_id, plan_id_name, plan_id_type, plan_market_type].hash
     end
 
     # Builds the object from hash

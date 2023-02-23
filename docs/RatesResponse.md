@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **tin_name** | **String** |  | [optional] |
 | **tin_value** | **String** |  | [optional] |
 | **npi** | **Integer** |  | [optional] |
 | **npi_specialties** | **Array&lt;String&gt;** |  | [optional] |
@@ -17,6 +18,7 @@
 require 'smrf_client'
 
 instance = SmrfClient::RatesResponse.new(
+  tin_name: Multicare Health System,
   tin_value: 46-0319070,
   npi: 1275827826,
   npi_specialties: null,

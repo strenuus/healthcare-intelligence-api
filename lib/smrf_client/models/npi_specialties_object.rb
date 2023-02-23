@@ -32,7 +32,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'npi_specialties' => :'Array<String>'
+        :'npi_specialties' => :'String'
       }
     end
 
@@ -58,9 +58,7 @@ module SmrfClient
       }
 
       if attributes.key?(:'npi_specialties')
-        if (value = attributes[:'npi_specialties']).is_a?(Array)
-          self.npi_specialties = value
-        end
+        self.npi_specialties = attributes[:'npi_specialties']
       end
     end
 

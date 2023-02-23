@@ -12,6 +12,8 @@
 | **entity_type** | [**EntityType**](EntityType.md) |  | [optional] |
 | **negotiated_type** | [**NegotiatedType**](NegotiatedType.md) |  | [optional] |
 | **zips** | **Array&lt;String&gt;** |  | [optional] |
+| **applicable_specialties** | **String** | intersection of specialties of the provider and of the billing code | [optional] |
+| **npi_specialties** | **String** |  | [optional] |
 | **metric** | **String** |  | [optional] |
 
 ## Example
@@ -28,6 +30,8 @@ instance = SmrfClient::SummaryRequestBody.new(
   entity_type: null,
   negotiated_type: null,
   zips: null,
+  applicable_specialties: 235Z00000X|Speech-Language Pathologist,
+  npi_specialties: 235Z00000X|Speech-Language Pathologist,
   metric: null
 )
 ```

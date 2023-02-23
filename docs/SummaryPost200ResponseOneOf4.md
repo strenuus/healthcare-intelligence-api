@@ -4,11 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **npi_specialties** | **Array&lt;String&gt;** |  | [optional] |
+| **npi_specialties** | **String** |  | [optional] |
 | **count** | **Integer** |  | [optional] |
 | **maximum_rate** | **Float** |  | [optional] |
 | **median_rate** | **Float** |  | [optional] |
 | **minimum_rate** | **Float** |  | [optional] |
+| **q1** | **Float** |  | [optional] |
+| **q3** | **Float** |  | [optional] |
 
 ## Example
 
@@ -16,11 +18,13 @@
 require 'smrf_client'
 
 instance = SmrfClient::SummaryPost200ResponseOneOf4.new(
-  npi_specialties: null,
+  npi_specialties: 235Z00000X|Speech-Language Pathologist,
   count: 974,
   maximum_rate: 302.5,
   median_rate: 100.5,
-  minimum_rate: 302.5
+  minimum_rate: 302.5,
+  q1: 95.0,
+  q3: 275.5
 )
 ```
 

@@ -25,6 +25,10 @@ module SmrfClient
 
     attr_accessor :minimum_rate
 
+    attr_accessor :q1
+
+    attr_accessor :q3
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -54,7 +58,9 @@ module SmrfClient
         :'count' => :'count',
         :'maximum_rate' => :'maximum_rate',
         :'median_rate' => :'median_rate',
-        :'minimum_rate' => :'minimum_rate'
+        :'minimum_rate' => :'minimum_rate',
+        :'q1' => :'q1',
+        :'q3' => :'q3'
       }
     end
 
@@ -70,7 +76,9 @@ module SmrfClient
         :'count' => :'Integer',
         :'maximum_rate' => :'Float',
         :'median_rate' => :'Float',
-        :'minimum_rate' => :'Float'
+        :'minimum_rate' => :'Float',
+        :'q1' => :'Float',
+        :'q3' => :'Float'
       }
     end
 
@@ -122,6 +130,14 @@ module SmrfClient
       if attributes.key?(:'minimum_rate')
         self.minimum_rate = attributes[:'minimum_rate']
       end
+
+      if attributes.key?(:'q1')
+        self.q1 = attributes[:'q1']
+      end
+
+      if attributes.key?(:'q3')
+        self.q3 = attributes[:'q3']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -146,7 +162,9 @@ module SmrfClient
           count == o.count &&
           maximum_rate == o.maximum_rate &&
           median_rate == o.median_rate &&
-          minimum_rate == o.minimum_rate
+          minimum_rate == o.minimum_rate &&
+          q1 == o.q1 &&
+          q3 == o.q3
     end
 
     # @see the `==` method
@@ -158,7 +176,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [negotiation_arrangement, count, maximum_rate, median_rate, minimum_rate].hash
+      [negotiation_arrangement, count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
     end
 
     # Builds the object from hash

@@ -15,6 +15,8 @@ require 'time'
 
 module SmrfClient
   class RatesResponse
+    attr_accessor :tin_name
+
     attr_accessor :tin_value
 
     attr_accessor :npi
@@ -30,6 +32,7 @@ module SmrfClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'tin_name' => :'tin_name',
         :'tin_value' => :'tin_value',
         :'npi' => :'npi',
         :'npi_specialties' => :'npi_specialties',
@@ -47,6 +50,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'tin_name' => :'String',
         :'tin_value' => :'String',
         :'npi' => :'Integer',
         :'npi_specialties' => :'Array<String>',
@@ -66,11 +70,12 @@ module SmrfClient
     # List of class defined in allOf (OpenAPI v3)
     def self.openapi_all_of
       [
-      :'ApplicableSpecialtiesObject',
       :'NegotiatedRateObject',
       :'NpiObject',
-      :'NpiSpecialtiesObject',
       :'ProviderNameObject',
+      :'RatesResponseAllOf',
+      :'RatesResponseAllOf1',
+      :'TinNameObject',
       :'TinValueObject'
       ]
     end
@@ -89,6 +94,10 @@ module SmrfClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'tin_name')
+        self.tin_name = attributes[:'tin_name']
+      end
 
       if attributes.key?(:'tin_value')
         self.tin_value = attributes[:'tin_value']
@@ -137,6 +146,7 @@ module SmrfClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          tin_name == o.tin_name &&
           tin_value == o.tin_value &&
           npi == o.npi &&
           npi_specialties == o.npi_specialties &&
@@ -154,7 +164,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [tin_value, npi, npi_specialties, applicable_specialties, provider_name, negotiated_rate].hash
+      [tin_name, tin_value, npi, npi_specialties, applicable_specialties, provider_name, negotiated_rate].hash
     end
 
     # Builds the object from hash

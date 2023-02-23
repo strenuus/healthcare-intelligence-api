@@ -8,6 +8,7 @@
 | **reporting_plan_id** | **Integer** |  | [optional] |
 | **plan_name** | **String** |  | [optional] |
 | **plan_id** | **String** |  | [optional] |
+| **plan_id_name** | **String** |  | [optional] |
 | **plan_id_type** | **String** |  | [optional] |
 | **plan_market_type** | **String** |  | [optional] |
 
@@ -21,6 +22,7 @@ instance = SmrfClient::ReportingPlan.new(
   reporting_plan_id: 9,
   plan_name: TITAN FARMS LLC,
   plan_id: 562115242,
+  plan_id_name: Boeing,
   plan_id_type: null,
   plan_market_type: null
 )

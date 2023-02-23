@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **applicable_specialties** | [**ApplicableSpecialtiesObject**](ApplicableSpecialtiesObject.md) |  | [optional] |
+| **applicable_specialties** | **String** | intersection of specialties of the provider and of the billing code | [optional] |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'smrf_client'
 
 instance = SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner1.new(
-  applicable_specialties: null
+  applicable_specialties: 235Z00000X|Speech-Language Pathologist
 )
 ```
 
