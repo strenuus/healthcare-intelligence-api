@@ -27,7 +27,7 @@ module SmrfClient
 
     attr_accessor :entity_type
 
-    attr_accessor :negotiated_type
+    attr_accessor :negotiated_supertype
 
     attr_accessor :zips
 
@@ -75,7 +75,7 @@ module SmrfClient
         :'negotiation_arrangement' => :'negotiation_arrangement',
         :'billing_class' => :'billing_class',
         :'entity_type' => :'entity_type',
-        :'negotiated_type' => :'negotiated_type',
+        :'negotiated_supertype' => :'negotiated_supertype',
         :'zips' => :'zips',
         :'applicable_specialties' => :'applicable_specialties',
         :'npi_specialties' => :'npi_specialties',
@@ -100,7 +100,7 @@ module SmrfClient
         :'negotiation_arrangement' => :'NegotiationArrangement',
         :'billing_class' => :'BillingClass',
         :'entity_type' => :'EntityType',
-        :'negotiated_type' => :'NegotiatedType',
+        :'negotiated_supertype' => :'NegotiatedSupertype',
         :'zips' => :'Array<String>',
         :'applicable_specialties' => :'String',
         :'npi_specialties' => :'String',
@@ -164,8 +164,8 @@ module SmrfClient
         self.entity_type = attributes[:'entity_type']
       end
 
-      if attributes.key?(:'negotiated_type')
-        self.negotiated_type = attributes[:'negotiated_type']
+      if attributes.key?(:'negotiated_supertype')
+        self.negotiated_supertype = attributes[:'negotiated_supertype']
       end
 
       if attributes.key?(:'zips')
@@ -257,7 +257,7 @@ module SmrfClient
           negotiation_arrangement == o.negotiation_arrangement &&
           billing_class == o.billing_class &&
           entity_type == o.entity_type &&
-          negotiated_type == o.negotiated_type &&
+          negotiated_supertype == o.negotiated_supertype &&
           zips == o.zips &&
           applicable_specialties == o.applicable_specialties &&
           npi_specialties == o.npi_specialties &&
@@ -276,7 +276,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_type, zips, applicable_specialties, npi_specialties, limit, offset, sort_by, sort_direction].hash
+      [rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_supertype, zips, applicable_specialties, npi_specialties, limit, offset, sort_by, sort_direction].hash
     end
 
     # Builds the object from hash

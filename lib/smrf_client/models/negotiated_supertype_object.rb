@@ -14,22 +14,8 @@ require 'date'
 require 'time'
 
 module SmrfClient
-  class SummaryPost200ResponseOneOf3
-    attr_accessor :negotiation_arrangement
-
-    attr_accessor :npi_count
-
-    attr_accessor :count
-
-    attr_accessor :maximum_rate
-
-    attr_accessor :median_rate
-
-    attr_accessor :minimum_rate
-
-    attr_accessor :q1
-
-    attr_accessor :q3
+  class NegotiatedSupertypeObject
+    attr_accessor :negotiated_supertype
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -56,14 +42,7 @@ module SmrfClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'negotiation_arrangement' => :'negotiation_arrangement',
-        :'npi_count' => :'npi_count',
-        :'count' => :'count',
-        :'maximum_rate' => :'maximum_rate',
-        :'median_rate' => :'median_rate',
-        :'minimum_rate' => :'minimum_rate',
-        :'q1' => :'q1',
-        :'q3' => :'q3'
+        :'negotiated_supertype' => :'negotiated_supertype'
       }
     end
 
@@ -75,14 +54,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'negotiation_arrangement' => :'NegotiationArrangement',
-        :'npi_count' => :'Integer',
-        :'count' => :'Integer',
-        :'maximum_rate' => :'Float',
-        :'median_rate' => :'Float',
-        :'minimum_rate' => :'Float',
-        :'q1' => :'Float',
-        :'q3' => :'Float'
+        :'negotiated_supertype' => :'NegotiatedSupertype'
       }
     end
 
@@ -92,59 +64,23 @@ module SmrfClient
       ])
     end
 
-    # List of class defined in allOf (OpenAPI v3)
-    def self.openapi_all_of
-      [
-      :'BaseSummaryResponseBody',
-      :'NegotiationArrangementObject'
-      ]
-    end
-
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::SummaryPost200ResponseOneOf3` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::NegotiatedSupertypeObject` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::SummaryPost200ResponseOneOf3`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::NegotiatedSupertypeObject`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'negotiation_arrangement')
-        self.negotiation_arrangement = attributes[:'negotiation_arrangement']
-      end
-
-      if attributes.key?(:'npi_count')
-        self.npi_count = attributes[:'npi_count']
-      end
-
-      if attributes.key?(:'count')
-        self.count = attributes[:'count']
-      end
-
-      if attributes.key?(:'maximum_rate')
-        self.maximum_rate = attributes[:'maximum_rate']
-      end
-
-      if attributes.key?(:'median_rate')
-        self.median_rate = attributes[:'median_rate']
-      end
-
-      if attributes.key?(:'minimum_rate')
-        self.minimum_rate = attributes[:'minimum_rate']
-      end
-
-      if attributes.key?(:'q1')
-        self.q1 = attributes[:'q1']
-      end
-
-      if attributes.key?(:'q3')
-        self.q3 = attributes[:'q3']
+      if attributes.key?(:'negotiated_supertype')
+        self.negotiated_supertype = attributes[:'negotiated_supertype']
       end
     end
 
@@ -166,14 +102,7 @@ module SmrfClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          negotiation_arrangement == o.negotiation_arrangement &&
-          npi_count == o.npi_count &&
-          count == o.count &&
-          maximum_rate == o.maximum_rate &&
-          median_rate == o.median_rate &&
-          minimum_rate == o.minimum_rate &&
-          q1 == o.q1 &&
-          q3 == o.q3
+          negotiated_supertype == o.negotiated_supertype
     end
 
     # @see the `==` method
@@ -185,7 +114,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [negotiation_arrangement, npi_count, count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
+      [negotiated_supertype].hash
     end
 
     # Builds the object from hash

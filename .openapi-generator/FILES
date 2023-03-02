@@ -23,8 +23,8 @@ docs/DefaultApi.md
 docs/EntityType.md
 docs/EntityTypeObject.md
 docs/NegotiatedRateObject.md
-docs/NegotiatedType.md
-docs/NegotiatedTypeObject.md
+docs/NegotiatedSupertype.md
+docs/NegotiatedSupertypeObject.md
 docs/NegotiationArrangement.md
 docs/NegotiationArrangementObject.md
 docs/NpiObject.md
@@ -96,8 +96,8 @@ lib/smrf_client/models/billing_codes_get200_response_inner_all_of.rb
 lib/smrf_client/models/entity_type.rb
 lib/smrf_client/models/entity_type_object.rb
 lib/smrf_client/models/negotiated_rate_object.rb
-lib/smrf_client/models/negotiated_type.rb
-lib/smrf_client/models/negotiated_type_object.rb
+lib/smrf_client/models/negotiated_supertype.rb
+lib/smrf_client/models/negotiated_supertype_object.rb
 lib/smrf_client/models/negotiation_arrangement.rb
 lib/smrf_client/models/negotiation_arrangement_object.rb
 lib/smrf_client/models/npi_object.rb
@@ -141,11 +141,6 @@ lib/smrf_client/version.rb
 smrf_client.gemspec
 spec/api_client_spec.rb
 spec/configuration_spec.rb
-spec/models/rates_response_all_of1_spec.rb
-spec/models/rates_response_all_of_spec.rb
-spec/models/summary_post200_response_one_of1_all_of_spec.rb
-spec/models/summary_post200_response_one_of2_all_of_spec.rb
-spec/models/summary_post200_response_one_of5_all_of_spec.rb
-spec/models/summary_post200_response_one_of6_all_of_spec.rb
-spec/models/tin_name_object_spec.rb
+spec/models/negotiated_supertype_object_spec.rb
+spec/models/negotiated_supertype_spec.rb
 spec/spec_helper.rb

@@ -17,6 +17,8 @@ module SmrfClient
   class SummaryPost200ResponseOneOf2
     attr_accessor :msa
 
+    attr_accessor :npi_count
+
     attr_accessor :count
 
     attr_accessor :maximum_rate
@@ -33,6 +35,7 @@ module SmrfClient
     def self.attribute_map
       {
         :'msa' => :'msa',
+        :'npi_count' => :'npi_count',
         :'count' => :'count',
         :'maximum_rate' => :'maximum_rate',
         :'median_rate' => :'median_rate',
@@ -51,6 +54,7 @@ module SmrfClient
     def self.openapi_types
       {
         :'msa' => :'String',
+        :'npi_count' => :'Integer',
         :'count' => :'Integer',
         :'maximum_rate' => :'Float',
         :'median_rate' => :'Float',
@@ -91,6 +95,10 @@ module SmrfClient
 
       if attributes.key?(:'msa')
         self.msa = attributes[:'msa']
+      end
+
+      if attributes.key?(:'npi_count')
+        self.npi_count = attributes[:'npi_count']
       end
 
       if attributes.key?(:'count')
@@ -137,6 +145,7 @@ module SmrfClient
       return true if self.equal?(o)
       self.class == o.class &&
           msa == o.msa &&
+          npi_count == o.npi_count &&
           count == o.count &&
           maximum_rate == o.maximum_rate &&
           median_rate == o.median_rate &&
@@ -154,7 +163,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [msa, count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
+      [msa, npi_count, count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
     end
 
     # Builds the object from hash

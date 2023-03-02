@@ -15,6 +15,8 @@ require 'time'
 
 module SmrfClient
   class BaseSummaryResponseBody
+    attr_accessor :npi_count
+
     attr_accessor :count
 
     attr_accessor :maximum_rate
@@ -30,6 +32,7 @@ module SmrfClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'npi_count' => :'npi_count',
         :'count' => :'count',
         :'maximum_rate' => :'maximum_rate',
         :'median_rate' => :'median_rate',
@@ -47,6 +50,7 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'npi_count' => :'Integer',
         :'count' => :'Integer',
         :'maximum_rate' => :'Float',
         :'median_rate' => :'Float',
@@ -76,6 +80,10 @@ module SmrfClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'npi_count')
+        self.npi_count = attributes[:'npi_count']
+      end
 
       if attributes.key?(:'count')
         self.count = attributes[:'count']
@@ -120,6 +128,7 @@ module SmrfClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          npi_count == o.npi_count &&
           count == o.count &&
           maximum_rate == o.maximum_rate &&
           median_rate == o.median_rate &&
@@ -137,7 +146,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
+      [npi_count, count, maximum_rate, median_rate, minimum_rate, q1, q3].hash
     end
 
     # Builds the object from hash

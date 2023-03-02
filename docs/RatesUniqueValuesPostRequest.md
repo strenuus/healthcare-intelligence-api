@@ -11,7 +11,7 @@
 | **negotiation_arrangement** | [**NegotiationArrangement**](NegotiationArrangement.md) |  | [optional] |
 | **billing_class** | [**BillingClass**](BillingClass.md) |  | [optional] |
 | **entity_type** | [**EntityType**](EntityType.md) |  | [optional] |
-| **negotiated_type** | [**NegotiatedType**](NegotiatedType.md) |  | [optional] |
+| **negotiated_supertype** | [**NegotiatedSupertype**](NegotiatedSupertype.md) |  | [optional] |
 | **zips** | **Array&lt;String&gt;** |  | [optional] |
 | **applicable_specialties** | **String** | intersection of specialties of the provider and of the billing code | [optional] |
 | **npi_specialties** | **String** |  | [optional] |
@@ -29,7 +29,7 @@ instance = SmrfClient::RatesUniqueValuesPostRequest.new(
   negotiation_arrangement: null,
   billing_class: null,
   entity_type: null,
-  negotiated_type: null,
+  negotiated_supertype: null,
   zips: null,
   applicable_specialties: 235Z00000X|Speech-Language Pathologist,
   npi_specialties: 235Z00000X|Speech-Language Pathologist
