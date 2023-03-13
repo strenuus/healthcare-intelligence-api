@@ -10,7 +10,7 @@ All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 ## billing_codes_get
 
-> <Array<BillingCodesGet200ResponseInner>> billing_codes_get
+> <Array<BillingCodesGet200ResponseInner>> billing_codes_get(opts)
 
 Returns all billing codes
 
@@ -26,10 +26,14 @@ SmrfClient.configure do |config|
 end
 
 api_instance = SmrfClient::BillingCodeApi.new
+opts = {
+  limit: 56, # Integer | 
+  offset: 56 # Integer | 
+}
 
 begin
   # Returns all billing codes
-  result = api_instance.billing_codes_get
+  result = api_instance.billing_codes_get(opts)
   p result
 rescue SmrfClient::ApiError => e
   puts "Error when calling BillingCodeApi->billing_codes_get: #{e}"
@@ -40,12 +44,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<BillingCodesGet200ResponseInner>>, Integer, Hash)> billing_codes_get_with_http_info
+> <Array(<Array<BillingCodesGet200ResponseInner>>, Integer, Hash)> billing_codes_get_with_http_info(opts)
 
 ```ruby
 begin
   # Returns all billing codes
-  data, status_code, headers = api_instance.billing_codes_get_with_http_info
+  data, status_code, headers = api_instance.billing_codes_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<BillingCodesGet200ResponseInner>>
@@ -56,7 +60,10 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
 
 ### Return type
 
@@ -74,7 +81,7 @@ This endpoint does not need any parameter.
 
 ## billing_codes_search_post
 
-> <Array<BillingCodeAndType>> billing_codes_search_post(rate_source_request_object)
+> <Array<BillingCodeAndType>> billing_codes_search_post(rate_source_request_object, opts)
 
 Returns billing codes for required parameters
 
@@ -91,10 +98,14 @@ end
 
 api_instance = SmrfClient::BillingCodeApi.new
 rate_source_request_object = SmrfClient::RateSourceRequestObject.new # RateSourceRequestObject | 
+opts = {
+  limit: 56, # Integer | 
+  offset: 56 # Integer | 
+}
 
 begin
   # Returns billing codes for required parameters
-  result = api_instance.billing_codes_search_post(rate_source_request_object)
+  result = api_instance.billing_codes_search_post(rate_source_request_object, opts)
   p result
 rescue SmrfClient::ApiError => e
   puts "Error when calling BillingCodeApi->billing_codes_search_post: #{e}"
@@ -105,12 +116,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<BillingCodeAndType>>, Integer, Hash)> billing_codes_search_post_with_http_info(rate_source_request_object)
+> <Array(<Array<BillingCodeAndType>>, Integer, Hash)> billing_codes_search_post_with_http_info(rate_source_request_object, opts)
 
 ```ruby
 begin
   # Returns billing codes for required parameters
-  data, status_code, headers = api_instance.billing_codes_search_post_with_http_info(rate_source_request_object)
+  data, status_code, headers = api_instance.billing_codes_search_post_with_http_info(rate_source_request_object, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<BillingCodeAndType>>
@@ -124,6 +135,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rate_source_request_object** | [**RateSourceRequestObject**](RateSourceRequestObject.md) |  |  |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
 
 ### Return type
 

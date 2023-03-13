@@ -65,10 +65,14 @@ SmrfClient.configure do |config|
 end
 
 api_instance = SmrfClient::BillingCodeApi.new
+opts = {
+  limit: 56, # Integer | 
+  offset: 56 # Integer | 
+}
 
 begin
   #Returns all billing codes
-  result = api_instance.billing_codes_get
+  result = api_instance.billing_codes_get(opts)
   p result
 rescue SmrfClient::ApiError => e
   puts "Exception when calling BillingCodeApi->billing_codes_get: #{e}"
@@ -132,6 +136,7 @@ Class | Method | HTTP request | Description
  - [SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner](docs/RatesUniqueValuesPost200ResponseOneOfInner.md)
  - [SmrfClient::RatesUniqueValuesPost200ResponseOneOfInner1](docs/RatesUniqueValuesPost200ResponseOneOfInner1.md)
  - [SmrfClient::RatesUniqueValuesPostRequest](docs/RatesUniqueValuesPostRequest.md)
+ - [SmrfClient::RatesUniqueValuesPostRequestAllOf](docs/RatesUniqueValuesPostRequestAllOf.md)
  - [SmrfClient::ReportingPlan](docs/ReportingPlan.md)
  - [SmrfClient::SummaryPost200Response](docs/SummaryPost200Response.md)
  - [SmrfClient::SummaryPost200ResponseOneOf](docs/SummaryPost200ResponseOneOf.md)

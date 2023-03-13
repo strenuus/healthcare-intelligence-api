@@ -9,7 +9,7 @@ All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 ## places_of_service_get
 
-> <Array<PlaceOfService>> places_of_service_get
+> <Array<PlaceOfService>> places_of_service_get(opts)
 
 Returns all places of service
 
@@ -25,10 +25,14 @@ SmrfClient.configure do |config|
 end
 
 api_instance = SmrfClient::PlaceOfServiceApi.new
+opts = {
+  limit: 56, # Integer | 
+  offset: 56 # Integer | 
+}
 
 begin
   # Returns all places of service
-  result = api_instance.places_of_service_get
+  result = api_instance.places_of_service_get(opts)
   p result
 rescue SmrfClient::ApiError => e
   puts "Error when calling PlaceOfServiceApi->places_of_service_get: #{e}"
@@ -39,12 +43,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<PlaceOfService>>, Integer, Hash)> places_of_service_get_with_http_info
+> <Array(<Array<PlaceOfService>>, Integer, Hash)> places_of_service_get_with_http_info(opts)
 
 ```ruby
 begin
   # Returns all places of service
-  data, status_code, headers = api_instance.places_of_service_get_with_http_info
+  data, status_code, headers = api_instance.places_of_service_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<PlaceOfService>>
@@ -55,7 +59,10 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
 
 ### Return type
 

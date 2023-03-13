@@ -94,7 +94,7 @@ module SmrfClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      metric_validator = EnumAttributeValidator.new('String', ["npi_specialties", "applicable_specialties", "zips", "negotiation_arrangement"])
+      metric_validator = EnumAttributeValidator.new('String', ["npi_specialties", "applicable_specialties", "zips", "counties", "states", "msa", "negotiated_supertype", "negotiation_arrangement"])
       return false unless metric_validator.valid?(@metric)
       true
     end
@@ -102,7 +102,7 @@ module SmrfClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] metric Object to be assigned
     def metric=(metric)
-      validator = EnumAttributeValidator.new('String', ["npi_specialties", "applicable_specialties", "zips", "negotiation_arrangement"])
+      validator = EnumAttributeValidator.new('String', ["npi_specialties", "applicable_specialties", "zips", "counties", "states", "msa", "negotiated_supertype", "negotiation_arrangement"])
       unless validator.valid?(metric)
         fail ArgumentError, "invalid value for \"metric\", must be one of #{validator.allowable_values}."
       end
