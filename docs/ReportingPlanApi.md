@@ -9,7 +9,7 @@ All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 ## rate_sources_rate_source_id_reporting_plans_get
 
-> <Array<ReportingPlan>> rate_sources_rate_source_id_reporting_plans_get(rate_source_id)
+> <Array<ReportingPlan>> rate_sources_rate_source_id_reporting_plans_get(rate_source_id, opts)
 
 Returns all reporting plans for rate source
 
@@ -26,10 +26,14 @@ end
 
 api_instance = SmrfClient::ReportingPlanApi.new
 rate_source_id = 789 # Integer | ID of rate source that needs to be fetched
+opts = {
+  limit: 56, # Integer | 
+  offset: 56 # Integer | 
+}
 
 begin
   # Returns all reporting plans for rate source
-  result = api_instance.rate_sources_rate_source_id_reporting_plans_get(rate_source_id)
+  result = api_instance.rate_sources_rate_source_id_reporting_plans_get(rate_source_id, opts)
   p result
 rescue SmrfClient::ApiError => e
   puts "Error when calling ReportingPlanApi->rate_sources_rate_source_id_reporting_plans_get: #{e}"
@@ -40,12 +44,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<ReportingPlan>>, Integer, Hash)> rate_sources_rate_source_id_reporting_plans_get_with_http_info(rate_source_id)
+> <Array(<Array<ReportingPlan>>, Integer, Hash)> rate_sources_rate_source_id_reporting_plans_get_with_http_info(rate_source_id, opts)
 
 ```ruby
 begin
   # Returns all reporting plans for rate source
-  data, status_code, headers = api_instance.rate_sources_rate_source_id_reporting_plans_get_with_http_info(rate_source_id)
+  data, status_code, headers = api_instance.rate_sources_rate_source_id_reporting_plans_get_with_http_info(rate_source_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<ReportingPlan>>
@@ -59,6 +63,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **rate_source_id** | **Integer** | ID of rate source that needs to be fetched |  |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
 
 ### Return type
 

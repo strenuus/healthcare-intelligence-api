@@ -9,7 +9,7 @@ All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
 
 ## rate_sources_get
 
-> <Array<RateSource>> rate_sources_get
+> <Array<RateSource>> rate_sources_get(opts)
 
 Returns all rate sources
 
@@ -25,10 +25,14 @@ SmrfClient.configure do |config|
 end
 
 api_instance = SmrfClient::RateSourceApi.new
+opts = {
+  limit: 56, # Integer | 
+  offset: 56 # Integer | 
+}
 
 begin
   # Returns all rate sources
-  result = api_instance.rate_sources_get
+  result = api_instance.rate_sources_get(opts)
   p result
 rescue SmrfClient::ApiError => e
   puts "Error when calling RateSourceApi->rate_sources_get: #{e}"
@@ -39,12 +43,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<RateSource>>, Integer, Hash)> rate_sources_get_with_http_info
+> <Array(<Array<RateSource>>, Integer, Hash)> rate_sources_get_with_http_info(opts)
 
 ```ruby
 begin
   # Returns all rate sources
-  data, status_code, headers = api_instance.rate_sources_get_with_http_info
+  data, status_code, headers = api_instance.rate_sources_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<RateSource>>
@@ -55,7 +59,10 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
 
 ### Return type
 

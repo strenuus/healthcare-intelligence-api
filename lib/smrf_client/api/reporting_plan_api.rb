@@ -22,6 +22,8 @@ module SmrfClient
     # Returns all reporting plans for rate source
     # @param rate_source_id [Integer] ID of rate source that needs to be fetched
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :offset 
     # @return [Array<ReportingPlan>]
     def rate_sources_rate_source_id_reporting_plans_get(rate_source_id, opts = {})
       data, _status_code, _headers = rate_sources_rate_source_id_reporting_plans_get_with_http_info(rate_source_id, opts)
@@ -31,6 +33,8 @@ module SmrfClient
     # Returns all reporting plans for rate source
     # @param rate_source_id [Integer] ID of rate source that needs to be fetched
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :offset 
     # @return [Array<(Array<ReportingPlan>, Integer, Hash)>] Array<ReportingPlan> data, response status code and response headers
     def rate_sources_rate_source_id_reporting_plans_get_with_http_info(rate_source_id, opts = {})
       if @api_client.config.debugging
@@ -45,6 +49,8 @@ module SmrfClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

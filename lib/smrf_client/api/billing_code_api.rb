@@ -21,6 +21,8 @@ module SmrfClient
     end
     # Returns all billing codes
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :offset 
     # @return [Array<BillingCodesGet200ResponseInner>]
     def billing_codes_get(opts = {})
       data, _status_code, _headers = billing_codes_get_with_http_info(opts)
@@ -29,6 +31,8 @@ module SmrfClient
 
     # Returns all billing codes
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :offset 
     # @return [Array<(Array<BillingCodesGet200ResponseInner>, Integer, Hash)>] Array<BillingCodesGet200ResponseInner> data, response status code and response headers
     def billing_codes_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -39,6 +43,8 @@ module SmrfClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -77,6 +83,8 @@ module SmrfClient
     # Returns billing codes for required parameters
     # @param rate_source_request_object [RateSourceRequestObject] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :offset 
     # @return [Array<BillingCodeAndType>]
     def billing_codes_search_post(rate_source_request_object, opts = {})
       data, _status_code, _headers = billing_codes_search_post_with_http_info(rate_source_request_object, opts)
@@ -86,6 +94,8 @@ module SmrfClient
     # Returns billing codes for required parameters
     # @param rate_source_request_object [RateSourceRequestObject] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :offset 
     # @return [Array<(Array<BillingCodeAndType>, Integer, Hash)>] Array<BillingCodeAndType> data, response status code and response headers
     def billing_codes_search_post_with_http_info(rate_source_request_object, opts = {})
       if @api_client.config.debugging
@@ -100,6 +110,8 @@ module SmrfClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

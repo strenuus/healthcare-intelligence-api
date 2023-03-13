@@ -14,70 +14,14 @@ require 'date'
 require 'time'
 
 module SmrfClient
-  class RatesUniqueValuesPostRequest
-    attr_accessor :field
-
-    attr_accessor :rate_source
-
-    attr_accessor :billing_code
-
-    attr_accessor :service_code
-
-    attr_accessor :negotiation_arrangement
-
-    attr_accessor :billing_class
-
-    attr_accessor :entity_type
-
-    attr_accessor :negotiated_supertype
-
-    attr_accessor :zips
-
-    # intersection of specialties of the provider and of the billing code
-    attr_accessor :applicable_specialties
-
-    attr_accessor :npi_specialties
-
+  class RatesUniqueValuesPostRequestAllOf
     attr_accessor :limit
 
     attr_accessor :offset
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'field' => :'field',
-        :'rate_source' => :'rate_source',
-        :'billing_code' => :'billing_code',
-        :'service_code' => :'service_code',
-        :'negotiation_arrangement' => :'negotiation_arrangement',
-        :'billing_class' => :'billing_class',
-        :'entity_type' => :'entity_type',
-        :'negotiated_supertype' => :'negotiated_supertype',
-        :'zips' => :'zips',
-        :'applicable_specialties' => :'applicable_specialties',
-        :'npi_specialties' => :'npi_specialties',
         :'limit' => :'limit',
         :'offset' => :'offset'
       }
@@ -91,17 +35,6 @@ module SmrfClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'field' => :'String',
-        :'rate_source' => :'RateSourceRequest',
-        :'billing_code' => :'BillingCodeAndType',
-        :'service_code' => :'PlaceOfServiceCode',
-        :'negotiation_arrangement' => :'NegotiationArrangement',
-        :'billing_class' => :'BillingClass',
-        :'entity_type' => :'EntityType',
-        :'negotiated_supertype' => :'NegotiatedSupertype',
-        :'zips' => :'Array<String>',
-        :'applicable_specialties' => :'String',
-        :'npi_specialties' => :'String',
         :'limit' => :'Integer',
         :'offset' => :'Integer'
       }
@@ -113,75 +46,20 @@ module SmrfClient
       ])
     end
 
-    # List of class defined in allOf (OpenAPI v3)
-    def self.openapi_all_of
-      [
-      :'BaseRequest',
-      :'RatesUniqueValuesPostRequestAllOf',
-      :'UniqueValuesFieldOptionsObject'
-      ]
-    end
-
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::RatesUniqueValuesPostRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SmrfClient::RatesUniqueValuesPostRequestAllOf` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::RatesUniqueValuesPostRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SmrfClient::RatesUniqueValuesPostRequestAllOf`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'field')
-        self.field = attributes[:'field']
-      end
-
-      if attributes.key?(:'rate_source')
-        self.rate_source = attributes[:'rate_source']
-      end
-
-      if attributes.key?(:'billing_code')
-        self.billing_code = attributes[:'billing_code']
-      end
-
-      if attributes.key?(:'service_code')
-        self.service_code = attributes[:'service_code']
-      end
-
-      if attributes.key?(:'negotiation_arrangement')
-        self.negotiation_arrangement = attributes[:'negotiation_arrangement']
-      end
-
-      if attributes.key?(:'billing_class')
-        self.billing_class = attributes[:'billing_class']
-      end
-
-      if attributes.key?(:'entity_type')
-        self.entity_type = attributes[:'entity_type']
-      end
-
-      if attributes.key?(:'negotiated_supertype')
-        self.negotiated_supertype = attributes[:'negotiated_supertype']
-      end
-
-      if attributes.key?(:'zips')
-        if (value = attributes[:'zips']).is_a?(Array)
-          self.zips = value
-        end
-      end
-
-      if attributes.key?(:'applicable_specialties')
-        self.applicable_specialties = attributes[:'applicable_specialties']
-      end
-
-      if attributes.key?(:'npi_specialties')
-        self.npi_specialties = attributes[:'npi_specialties']
-      end
 
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
@@ -196,40 +74,13 @@ module SmrfClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @field.nil?
-        invalid_properties.push('invalid value for "field", field cannot be nil.')
-      end
-
-      if @rate_source.nil?
-        invalid_properties.push('invalid value for "rate_source", rate_source cannot be nil.')
-      end
-
-      if @billing_code.nil?
-        invalid_properties.push('invalid value for "billing_code", billing_code cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @field.nil?
-      field_validator = EnumAttributeValidator.new('String', ["applicable_specialties", "npi", "npi_specialties", "tin_value", "provider_name"])
-      return false unless field_validator.valid?(@field)
-      return false if @rate_source.nil?
-      return false if @billing_code.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] field Object to be assigned
-    def field=(field)
-      validator = EnumAttributeValidator.new('String', ["applicable_specialties", "npi", "npi_specialties", "tin_value", "provider_name"])
-      unless validator.valid?(field)
-        fail ArgumentError, "invalid value for \"field\", must be one of #{validator.allowable_values}."
-      end
-      @field = field
     end
 
     # Checks equality by comparing each attribute.
@@ -237,17 +88,6 @@ module SmrfClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          field == o.field &&
-          rate_source == o.rate_source &&
-          billing_code == o.billing_code &&
-          service_code == o.service_code &&
-          negotiation_arrangement == o.negotiation_arrangement &&
-          billing_class == o.billing_class &&
-          entity_type == o.entity_type &&
-          negotiated_supertype == o.negotiated_supertype &&
-          zips == o.zips &&
-          applicable_specialties == o.applicable_specialties &&
-          npi_specialties == o.npi_specialties &&
           limit == o.limit &&
           offset == o.offset
     end
@@ -261,7 +101,7 @@ module SmrfClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [field, rate_source, billing_code, service_code, negotiation_arrangement, billing_class, entity_type, negotiated_supertype, zips, applicable_specialties, npi_specialties, limit, offset].hash
+      [limit, offset].hash
     end
 
     # Builds the object from hash

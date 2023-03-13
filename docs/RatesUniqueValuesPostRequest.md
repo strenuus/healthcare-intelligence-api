@@ -15,6 +15,8 @@
 | **zips** | **Array&lt;String&gt;** |  | [optional] |
 | **applicable_specialties** | **String** | intersection of specialties of the provider and of the billing code | [optional] |
 | **npi_specialties** | **String** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -32,7 +34,9 @@ instance = SmrfClient::RatesUniqueValuesPostRequest.new(
   negotiated_supertype: null,
   zips: null,
   applicable_specialties: 235Z00000X|Speech-Language Pathologist,
-  npi_specialties: 235Z00000X|Speech-Language Pathologist
+  npi_specialties: 235Z00000X|Speech-Language Pathologist,
+  limit: 1000,
+  offset: 2500
 )
 ```
 
