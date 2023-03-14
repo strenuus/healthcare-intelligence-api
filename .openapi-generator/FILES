@@ -143,5 +143,4 @@ lib/smrf_client/version.rb
 smrf_client.gemspec
 spec/api_client_spec.rb
 spec/configuration_spec.rb
-spec/models/rates_unique_values_post_request_all_of_spec.rb
 spec/spec_helper.rb

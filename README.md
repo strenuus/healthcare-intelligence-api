@@ -82,7 +82,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://hci-qa.services.mdxdata.com/api*
+All URIs are relative to *https://hci-test.pa.services.mdxdata.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

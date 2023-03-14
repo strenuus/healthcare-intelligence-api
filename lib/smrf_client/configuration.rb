@@ -145,7 +145,7 @@ module SmrfClient
 
     def initialize
       @scheme = 'https'
-      @host = 'hci-qa.services.mdxdata.com'
+      @host = 'hci-test.pa.services.mdxdata.com'
       @base_path = '/api'
       @server_index = 0
       @server_operation_index = {}
@@ -241,17 +241,12 @@ module SmrfClient
     def server_settings
       [
         {
-          url: "https://hci{environment}.services.mdxdata.com/api",
-          description: "No description provided",
-          variables: {
-            environment: {
-                description: "No description provided",
-                default_value: "-qa",
-                enum_values: [
-                  "-qa"
-                ]
-              }
-            }
+          url: "https://hci-test.pa.services.mdxdata.com/api",
+          description: "Experimental test server",
+        },
+        {
+          url: "https://hci-qa.services.mdxdata.com/api",
+          description: "QA server (Wellmark)",
         }
       ]
     end
